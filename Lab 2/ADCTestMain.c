@@ -89,8 +89,9 @@ int main(void){
   GPIO_PORTF_AMSEL_R = 0;               // disable analog functionality on PF
   PF2 = 0;                      // turn off LED
   EnableInterrupts();
-  while(1){
+  while(ArrayIndex != 1000){
     PF1 ^= 0x02;  // toggles when running in main
+  }
 		if(ArrayIndex == 1000){
 			DisableInterrupts();
 			uint32_t maxdifference = 0;
@@ -121,6 +122,5 @@ int main(void){
 			}
 		}
   }
-}
 
 
