@@ -41,6 +41,7 @@ void WaitForInterrupt(void);  // low power mode
 volatile uint32_t ADCvalue;
 uint32_t ADCArray[1000];
 uint32_t TimeArray[1000];
+uint32_t ADCData[4096];
 uint32_t ArrayIndex = 0;
 uint32_t Globe = 0;
 // This debug function initializes Timer0A to request interrupts
@@ -96,7 +97,7 @@ int main(void){
 		if(ArrayIndex == 1000){
 			DisableInterrupts();
 			uint32_t maxdifference = 0;
-			uint32_t mindifference = TimeArray[0];
+			uint32_t mindifference = TimeArray[0] - TimeArray[1];
 			for(uint32_t i = 0; i < 999; i++){
 				uint32_t tempdifference = TimeArray[i] - TimeArray[i+1];
 				if(tempdifference > maxdifference){
@@ -108,8 +109,8 @@ int main(void){
 			}
 			uint32_t timejitter = maxdifference - mindifference;
 			uint32_t ADCmin = ADCArray[0];
-			uint32_t ADCmax = 0;
-			for(uint32_t i = 0; i < 1000; i++){
+			uint32_t ADCmax = ADCArray[0];
+			for(uint32_t i = 1; i < 1000; i++){
 					if(ADCArray[i] < ADCmin){
 							ADCmin = ADCArray[i];
 					}
@@ -117,7 +118,6 @@ int main(void){
 							ADCmax = ADCArray[i];
 					}
 			}
-			uint32_t ADCData[4096];
 			for(uint32_t i = 0; i < 4096; i++){
 				ADCData[i] = 0;
 			}
