@@ -42,6 +42,7 @@ volatile uint32_t ADCvalue;
 uint32_t ADCArray[1000];
 uint32_t TimeArray[1000];
 uint32_t ArrayIndex = 0;
+uint32_t Globe = 0;
 // This debug function initializes Timer0A to request interrupts
 // at a 100 Hz frequency.  It is similar to FreqMeasure.c.
 void Timer0A_Init100HzInt(void){
@@ -95,7 +96,7 @@ int main(void){
 		if(ArrayIndex == 1000){
 			DisableInterrupts();
 			uint32_t maxdifference = 0;
-			uint32_t mindifference = 0;
+			uint32_t mindifference = TimeArray[0];
 			for(uint32_t i = 0; i < 999; i++){
 				uint32_t tempdifference = TimeArray[i] - TimeArray[i+1];
 				if(tempdifference > maxdifference){
@@ -116,9 +117,13 @@ int main(void){
 							ADCmax = ADCArray[i];
 					}
 			}
-			uint32_t ADCData[ADCmax - ADCmin + 1];
+			uint32_t ADCData[4096];
+			for(uint32_t i = 0; i < 4096; i++){
+				ADCData[i] = 0;
+			}
 			for(uint32_t i = 0; i < 1000; i++){
-					ADCData[ADCArray[i] - ADCmin] += 1;
+					ADCData[(ADCArray[i] - 1)] += 1;
+					Globe += 1;
 			}
 		}
   }
