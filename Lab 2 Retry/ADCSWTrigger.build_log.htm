@@ -1,0 +1,85 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\Schoolwork\EE 445L\Labs\Lab 2 Retry\ADCSWTrigger.uvproj
+Project File Date:  09/12/2016
+
+<h2>Output:</h2>
+Rebuild target 'ADCSWTrigger'
+assembling startup.s...
+compiling ADCSWTrigger.c...
+compiling ADCTestMain.c...
+ADCTestMain.c(139): warning:  #177-D: variable "timejitter" was declared but never referenced
+                        uint32_t timejitter = maxdifference - mindifference;
+ADCTestMain.c: 1 warning, 0 errors
+compiling PLL.c...
+compiling Timer1.c...
+compiling LineDrawer.c...
+compiling ST7735.c...
+compiling Graph.c...
+linking...
+Program Size: Code=4400 RO-data=2052 RW-data=52 ZI-data=17124  
+".\ADCSWTrigger.axf" - 0 Error(s), 1 Warning(s).
+</pre>
+</body>
+</html>
+...
+compiling ST7735.c...
+compiling Graph.c...
+Graph.h(26): warning:  #1-D: last line of file ends without a newline
+  void ST7735_XYplot(uint32_t num, uint32_t bufX[], uint32_t bufY[], uint32_t xmin, uint32_t xmax, uint32_t ymin, uint32_t ymax);
+Graph.c(30): warning:  #1-D: last line of file ends without a newline
+  };
+Graph.c: 2 warnings, 0 errors
+linking...
+Program Size: Code=4140 RO-data=2052 RW-data=52 ZI-data=17124  
+".\ADCSWTrigger.axf" - 0 Error(s), 4 Warning(s).
+
+Target not created
+ing Timer1.c...
+compiling LineDrawer.c...
+compiling ST7735.c...
+compiling Graph.c...
+Graph.c(24): error:  #147-D: declaration is incompatible with "void ST7735_XYplot(uint32_t, int32_t *, int32_t *)" (declared at line 72 of "fixed.h")
+  void ST7735_XYplot(uint32_t num, uint32_t bufX[], uint32_t bufY[], uint32_t xmin, uint32_t xmax, uint32_t ymin, uint32_t ymax){
+Graph.c(30): warning:  #1-D: last line of file ends without a newline
+  };
+Graph.c: 1 warning, 1 error
+".\ADCSWTrigger.axf" - 2 Error(s), 5 Warning(s).
+Target not created
+ed.c(23): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+                fputc(45, 0);
+fixed.c(26): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+                fputc(32, 0);
+fixed.c(33): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+        fputc((n/x + ASCII), 0);                                                        //Print first digit of fixed point number
+fixed.c(34): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+        fputc(46, 0);
+fixed.c(37): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+                fputc(z/x + ASCII, 0);
+fixed.c(44): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+        fputc(42, 0);
+fixed.c(45): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+        fputc(42, 0);
+fixed.c(46): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+        fputc(42, 0);
+fixed.c(47): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+        fputc(46, 0);
+fixed.c(48): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+        fputc(42, 0);
+fixed.c(49): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+        fputc(42, 0);
+fixed.c(58): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+        fputc(n/x + ASCII, 0);                                                          //Print first digit
+fixed.c(61): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+                fputc(z/x + ASCII, 0);
+fixed.c(64): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+        fputc(46, 0);                                                                                                   //Print .
+fixed.c(67): warning:  #2748-D: null argument provided for parameter marked with attribute "nonnull"
+                fputc(z/x + ASCII, 0);
+fixed.c: 21 warnings, 0 errors
+linking...
+Program Size: Code=4188 RO-data=2052 RW-data=68 ZI-data=17124  
+".\ADCSWTrigger.axf" - 0 Error(s), 24 Warning(s).
